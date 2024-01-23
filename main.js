@@ -108,3 +108,51 @@ for (let i = 0 ; i < scored.length ; i++)  {
     scorers[scored[i]] = count
 }
 console.log(scorers);
+
+
+//lab2 
+// tạo sự kiện
+const gameevent =new Map([
+    [1,'Phat Goc'],
+    [3,'the vang'],
+    [5,'Ghi ban'],
+    [10,'the do'],
+    [17,'Phat Goc'],
+    [45,'the vang'],
+    [64,'the vang'],
+    [77,'the do'],
+    [79,'Phat Goc'],
+    [85,'the vang'],
+    [89,'Ghi ban'],
+    [90,'the do'],
+]);
+console.log(gameevent);
+// 1 Tao bang su kien khac nhau
+const events2 = [...new Set(gameevent.values())];
+console.log(events2);
+//xoa su kien phut 64
+gameevent.delete(64);
+console.log(gameevent);
+//hien thi tho gian trung binh dien ra su kien
+const time = [...gameevent.keys()];
+console.log(time[time.length-1]);
+console.log(`Trung binh sau moi${time[time.length-1]/time.length}phut se co su kien xay ra`);
+// hien thi suj kien dien ra trong hiep 1 va 2
+for (const[min,event]of gameevent){
+    let hiep = (min<= 45) ? '1' :'2';
+    console.log(`[Hiep${hiep}] ${min}: ${event}`);
+}
+//lab 2.2
+    document.querySelector('body').innerHTML= '<textarea name="" id ="" cols="30" rows="8"></textarea><br><button> Click</button>';
+    let button = document.querySelector('button');
+    button.addEventListener('click',function(){
+        let text = document.querySelector('textarea').value;
+        console.log(text);
+        const rows = text.split('\n');
+        console.log(rows);
+        for (const row of rows){
+            const[str1, str2]= row.toLowerCase().trim().split('_');
+            let output = `${str1}${str2.replace(str2[0],str2[0].toUpperCase())}`;
+            console.log(output);
+        }
+    });
